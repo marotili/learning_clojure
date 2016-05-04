@@ -8,11 +8,12 @@
   (initialize))
 
 (defmacro sketch
-  [initialize draw update]
+  [initialize draw update key-pressed]
   `(q/defsketch ~'example-sketch
                 :title "Example"
                 :setup (partial setup ~initialize)
                 :draw ~draw
                 :update ~update
                 :middleware [m/fun-mode]
+                :key-pressed ~key-pressed
                 :size [600 400]))
